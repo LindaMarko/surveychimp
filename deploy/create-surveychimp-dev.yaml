@@ -1,4 +1,7 @@
-name: coral-app
+domains:
+- domain: dev.surveychimp-groupseven.me
+  type: PRIMARY
+name: surveychimp-test
 region: ams
 services:
 - build_command: npx nx run surveychimp-api:build:production
@@ -7,7 +10,7 @@ services:
   - key: MONGO_DATABASE_URI
     scope: RUN_AND_BUILD_TIME
     type: SECRET
-    value: EV[1:bijxyq+ekko0MjX5tKKckCZPC+wC/l5Y:ov9CrAjwEBpYwIhevorqx4CnjwWT5bQg/CuO+YAjpt6AWv4N+FBhxmoUtFXiUh2pIshsRii//iJpuWqqQS0Yli40VA6itgL4g48TwxVb2Hy6R0MUYCfU/eOsM77D6//D37zUB7Ag9A==]
+    value: EV[1:4a6ybuHMuKaTYGRWykIAYwKl1CQhWaJf:j3nzuB4UtPqsntnPcMyU4ehHEJ/k7w8jECpp3Ecv7z1YpoxBFB4ay7JUMtqktFEE64qAj/cycn1Lps9amEWkhpBiWX5EOwUHcVz/0OJFEwm0H3wqvKJ4LqJsXRdorq2P0dP439XBkfaOxnZ55jtcDlJE5Yd0vlcGhX7UYwozTf7uOqTJ9/akrFIomkd2ffYe8hi/5m61uQIr8eXvM+T36A==]
   github:
     branch: dev
     deploy_on_push: true
@@ -17,6 +20,19 @@ services:
   instance_size_slug: basic-xxs
   name: surveychimp
   routes:
-  - path: /
+  - path: /api
   run_command: node ./dist/apps/surveychimp-api/main.js
+  source_dir: /
+static_sites:
+- build_command: npx nx run surveychimp-survey-spa:build:production
+  catchall_document: index.html
+  environment_slug: node-js
+  github:
+    branch: dev
+    deploy_on_push: true
+    repo: LindaMarko/surveychimp
+  name: surveychimp2
+  output_dir: dist/apps/surveychimp-survey-spa
+  routes:
+  - path: /
   source_dir: /
