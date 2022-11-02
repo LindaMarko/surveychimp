@@ -3,9 +3,9 @@ name: test-spa
 on:
   push:
     branches: [ main ],
-    paths:
-     - 'surveychimp-survey-spa',
-     - 'libs'
+    #paths:
+     #- 'surveychimp-survey-spa',
+     #- 'libs'
   pull_request:
     branches: [ main ]
 
