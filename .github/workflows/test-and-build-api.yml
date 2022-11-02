@@ -3,9 +3,9 @@ name: test-api
 on:
   push:
     branches: [ main ],
-    #paths:
-     #- 'surveychimp-api',
-     #- 'libs'
+    paths:
+     - 'surveychimp-api',
+     - 'libs'
   pull_request:
     branches: [ main ]
 
