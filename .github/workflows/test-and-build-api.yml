@@ -1,13 +1,11 @@
 name: test-api
 
-on:
-  push:
-    branches: [ main ],
+on: 
+  pull_request:
+    branches: [ main ]
     paths:
      - 'apps/surveychimp-api/**',
      - 'libs/**'
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:

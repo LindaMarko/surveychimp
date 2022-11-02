@@ -1,13 +1,11 @@
 name: test-spa
 
 on:
-  push:
-    branches: [ main ],
+  pull_request:
+    branches: [ main ]
     paths:
      - 'apps/surveychimp-survey-spa/**',
      - 'libs/**'
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
