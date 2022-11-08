@@ -88,5 +88,6 @@ router.get('/api/survey', async (req, res, next) => {
     next(err);
   }
 });
+router.get('/api/healthcheck',(req,res)=>res.status(200).send());
 
 export default router;
