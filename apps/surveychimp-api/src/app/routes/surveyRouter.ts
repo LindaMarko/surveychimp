@@ -3,6 +3,7 @@ import {
   addSurvey,
   addResponseToSurvey,
   getSurveyById,
+  getAllSurveys,
 } from '@surveychimp/surveychimp-lib';
 import { body, param, validationResult } from 'express-validator';
 import { nextTick } from 'process';
@@ -79,5 +80,13 @@ router.patch(
 
 router.get('/api/todos', (req, res) => res.status(200).send());
 router.get('/api/test', (req, res) => res.status(200).send());
+router.get('/api/survey', async (req, res, next) => {
+  try {
+    const surveys = await getAllSurveys();
+    res.json(surveys);
+  } catch (err) {
+    next(err);
+  }
+});
 
 export default router;
