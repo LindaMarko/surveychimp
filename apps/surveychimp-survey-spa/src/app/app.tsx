@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SurveyPage from './pages/SurveyPage';
 
 import { Route, Routes } from 'react-router-dom';
+import ThankYou from './pages/ThankYou';
 
 
 
@@ -23,6 +24,10 @@ export function App() {
         <Route
           path="/"
           element={<div>Du är på förstasidan</div>} />
+        <Route
+          path="/thankyou"
+          element={<ThankYou />}
+        />
       </Routes>
     </StyledApp>
   );
