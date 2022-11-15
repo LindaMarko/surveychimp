@@ -1,4 +1,4 @@
-@baseUrl=https://dev.surveychimp-groupseven.me/api
+@baseUrl=https://localhost:4200
 
 
 POST {{baseUrl}}/survey

@@ -10,7 +10,7 @@ services:
   - key: MONGO_DATABASE_URI
     scope: RUN_AND_BUILD_TIME
     type: SECRET
-    value: EV[1:4a6ybuHMuKaTYGRWykIAYwKl1CQhWaJf:j3nzuB4UtPqsntnPcMyU4ehHEJ/k7w8jECpp3Ecv7z1YpoxBFB4ay7JUMtqktFEE64qAj/cycn1Lps9amEWkhpBiWX5EOwUHcVz/0OJFEwm0H3wqvKJ4LqJsXRdorq2P0dP439XBkfaOxnZ55jtcDlJE5Yd0vlcGhX7UYwozTf7uOqTJ9/akrFIomkd2ffYe8hi/5m61uQIr8eXvM+T36A==]
+    value: EV[1:G4xpCCILpclEbQfa4rt10riX7HWydJn1:RwSdaFBwec8M9JJ7jduZ7x74Wod4ejH1p++UUVeHnUJLNlcS0mPzafJyYWJ0oIzGBKcgH8bBCPrjB4QX8Z4g/UtdtqT6R4HsqVAQoMMjf/RhKVuyNVAZVBowrrBMbO4jivzNfE0mZ8Ls0Wlkh5fIFXwUHtGGhosdhD4DnPdVsFUnbgd25hiMt/YaI+xEbCW2AGmWYwytCcZgTCjsSHp5Ig==]
   github:
     branch: dev
     deploy_on_push: true
@@ -27,6 +27,10 @@ static_sites:
 - build_command: npx nx run surveychimp-survey-spa:build:production
   catchall_document: index.html
   environment_slug: node-js
+  envs:
+  - key: NX_ENABLE_FOUR_STAR_FEATURE
+    scope: BUILD_TIME
+    value: "true"
   github:
     branch: dev
     deploy_on_push: true
